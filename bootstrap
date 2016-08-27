@@ -1,0 +1,13 @@
+#! /bin/sh
+set -x
+if [ -e /usr/local/bin/glibtoolize ] ; then
+   glibtoolize --force
+elif [ -e /usr/bin/libtoolize ] ; then
+   glibtoolize --force
+elif [ -e /usr/bin/libtoolize ] ; then
+   libtoolize --force
+fi
+aclocal -I /usr/local/share/aclocal
+autoheader
+autoconf
+automake --gnu --add-missing --copy

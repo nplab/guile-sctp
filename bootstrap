@@ -10,4 +10,4 @@ fi
 aclocal -I /usr/local/share/aclocal
 autoheader
 autoconf
-automake --gnu --add-missing --copy
+automake --foreign --add-missing --copy

@@ -14,7 +14,7 @@ BUILT_SOURCES = $(XFILES)
 SUFFIXES = .x
 
 .c.x:
-	guile-snarf -o $@ $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CFLAGS) $<
+	guile-snarf -o $@ $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CFLAGS) $<
 
 EXTRA_DIST = bootstrap sctp.scm $(XFILES)
 

@@ -20,7 +20,7 @@ sudo make install
 ### FreeBSD
 For installing the required packages run:
 ```
-sudo pkg install guile2
+sudo pkg install wget guile2
 ```
 Then download the sources, compile and install it:
 ```

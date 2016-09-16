@@ -1,6 +1,5 @@
 # guile-sctp
-This is an extension for [guile](https://www.gnu.org/software/guile/) to add basic support for
-using SCTP.
+This is an extension for [guile](https://www.gnu.org/software/guile/) adding basic SCTP support.
 
 ## Installation
 ### Linux (Ubuntu)

@@ -30,3 +30,8 @@ cd guile-sctp-1.2.2
 make
 sudo make install
 ```
+### Solaris
+TBD
+
+### MacOS X
+TBD

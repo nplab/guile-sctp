@@ -8,7 +8,7 @@ For installing the required packages run:
 ```
 sudo apt-get install guile-2.0 guile-2.0-dev libsctp-dev
 ```
-Then download the sources, compile and install it:
+Then download the sources, compile them and install the files:
 ```
 wget https://github.com/nplab/guile-sctp/releases/download/v1.2.2/guile-sctp-1.2.2.tar.gz
 tar xvfz guile-sctp-1.2.2.tar.gz
@@ -22,7 +22,7 @@ For installing the required packages run:
 ```
 sudo pkg install wget guile2
 ```
-Then download the sources, compile and install it:
+Then download the sources, compile them and install the files:
 ```
 wget https://github.com/nplab/guile-sctp/releases/download/v1.2.2/guile-sctp-1.2.2.tar.gz
 tar xvfz guile-sctp-1.2.2.tar.gz

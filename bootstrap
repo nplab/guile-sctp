@@ -1,13 +1,17 @@
-#! /bin/sh
+#!/usr/bin/env sh
 set -x
 if [ -e /usr/local/bin/glibtoolize ] ; then
-   glibtoolize --force
+   /usr/local/bin/glibtoolize --force
+elif [ -e /usr/bin/glibtoolize ] ; then
+   /usr/bin/glibtoolize --force
 elif [ -e /usr/bin/libtoolize ] ; then
-   glibtoolize --force
-elif [ -e /usr/bin/libtoolize ] ; then
-   libtoolize --force
+   /usr/bin/libtoolize --force
 fi
-aclocal -I /usr/local/share/aclocal
+if [ -e /usr/local/share/aclocal ] ; then
+   aclocal -I /usr/local/share/aclocal
+else
+   aclocal
+fi
 autoheader
 autoconf
 automake --foreign --add-missing --copy

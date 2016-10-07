@@ -9,9 +9,9 @@ sudo apt-get install guile-2.0 guile-2.0-dev libsctp-dev
 ```
 Then download the sources, compile them and install the files:
 ```
-wget https://github.com/nplab/guile-sctp/releases/download/v1.2.2/guile-sctp-1.2.2.tar.gz
-tar xvfz guile-sctp-1.2.2.tar.gz
-cd guile-sctp-1.2.2
+wget https://github.com/nplab/guile-sctp/releases/download/v1.2.4/guile-sctp-1.2.4.tar.gz
+tar xvfz guile-sctp-1.2.4.tar.gz
+cd guile-sctp-1.2.4
 ./configure --prefix=/usr
 make
 sudo make install
@@ -23,9 +23,9 @@ sudo pkg install wget guile2
 ```
 Then download the sources, compile them and install the files:
 ```
-wget https://github.com/nplab/guile-sctp/releases/download/v1.2.2/guile-sctp-1.2.2.tar.gz
-tar xvfz guile-sctp-1.2.2.tar.gz
-cd guile-sctp-1.2.2
+wget https://github.com/nplab/guile-sctp/releases/download/v1.2.4/guile-sctp-1.2.4.tar.gz
+tar xvfz guile-sctp-1.2.4.tar.gz
+cd guile-sctp-1.2.4
 ./configure
 make
 sudo make install
@@ -37,9 +37,9 @@ sudo pkg install guile
 ```
 Then download the sources, compile them and install the files:
 ```
-wget https://github.com/nplab/guile-sctp/releases/download/v1.2.2/guile-sctp-1.2.2.tar.gz
-tar xvfz guile-sctp-1.2.2.tar.gz
-cd guile-sctp-1.2.2
+wget https://github.com/nplab/guile-sctp/releases/download/v1.2.4/guile-sctp-1.2.4.tar.gz
+tar xvfz guile-sctp-1.2.4.tar.gz
+cd guile-sctp-1.2.4
 ./configure
 make
 sudo make install

@@ -4,6 +4,8 @@ if [ -e /usr/local/bin/glibtoolize ] ; then
    /usr/local/bin/glibtoolize --force
 elif [ -e /usr/bin/glibtoolize ] ; then
    /usr/bin/glibtoolize --force
+elif [ -e /usr/local/bin/libtoolize ] ; then
+   /usr/local/bin/libtoolize --force
 elif [ -e /usr/bin/libtoolize ] ; then
    /usr/bin/libtoolize --force
 fi

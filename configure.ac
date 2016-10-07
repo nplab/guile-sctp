@@ -98,7 +98,8 @@ AC_TRY_COMPILE([#ifdef HAVE_SYS_TYPES_H
                 AC_MSG_RESULT(yes)],
                [AC_MSG_RESULT(no)])
 
-AC_CHECK_LIB(sctp, sctp_sendmsg)
+AC_CHECK_FUNCS(sctp_sendmsg,, [AC_CHECK_LIB(sctp, sctp_sendmsg)])
+AC_CHECK_FUNCS(sctp_recvmsg,, [AC_CHECK_LIB(sctp, sctp_sendmsg)])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT

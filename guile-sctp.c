@@ -248,8 +248,7 @@ _scm_from_sockaddr (const struct sockaddr *address, unsigned addr_size, const ch
 }
 
 
-#ifdef HAVE_LIBSCTP
-
+#ifdef HAVE_SCTP_RECVMSG
 SCM_DEFINE (net_sctp_recvmsg, "sctp-recvmsg!", 2, 3, 0,
             (SCM sock, SCM str, SCM flags, SCM start, SCM end),
 	    "Return data from the socket port @var{sock} and also\n"
@@ -329,7 +328,9 @@ SCM_DEFINE (net_sctp_recvmsg, "sctp-recvmsg!", 2, 3, 0,
 	return scm_list_4 (scm_from_int (rv), address, scm_from_int (flg), s_sinfo); 
 }
 #undef FUNC_NAME
+#endif
 
+#ifdef HAVE_SCTP_SENDMSG
 SCM_DEFINE (net_sctp_sendmsg, "sctp-sendmsg", 8, 0, 1,
             (SCM sock, SCM message, SCM ppid, SCM stream_no, SCM ttl, SCM context, SCM fam_or_sockaddr, SCM address, SCM args_and_flags),
 	    "Transmit the string @var{message} on the socket port\n"
@@ -404,7 +405,6 @@ SCM_DEFINE (net_sctp_sendmsg, "sctp-sendmsg", 8, 0, 1,
 	return scm_from_int (rv);
 }
 #undef FUNC_NAME
-
 #endif
 
 

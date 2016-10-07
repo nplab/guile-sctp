@@ -80,24 +80,6 @@ AC_CHECK_MEMBERS([struct sockaddr_in6.sin6_len],,,
                   #include <netinet/in.h>
                   #endif])
 
-AC_MSG_CHECKING(for working SCTP support)
-AC_TRY_COMPILE([#ifdef HAVE_SYS_TYPES_H
-                #include <sys/types.h>
-                #endif
-                #ifdef HAVE_SYS_SOCKET_H
-                #include <sys/socket.h>
-                #endif
-                #ifdef HAVE_NETINET_IN_H
-                #include <netinet/in.h>
-                #endif
-                #ifdef HAVE_NETINET_SCTP_H
-                #include <netinet/sctp.h>
-                #endif],
-               [int fd; fd = socket(AF_INET, SOCK_SEQPACKET, IPPROTO_SCTP);],
-               [AC_DEFINE(HAVE_SCTP, 1, [Define if you have support for SCTP])
-                AC_MSG_RESULT(yes)],
-               [AC_MSG_RESULT(no)])
-
 AC_CHECK_FUNCS(sctp_sendmsg,, [AC_CHECK_LIB(sctp, sctp_sendmsg)])
 AC_CHECK_FUNCS(sctp_recvmsg,, [AC_CHECK_LIB(sctp, sctp_sendmsg)])
 

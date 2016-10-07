@@ -2,8 +2,10 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_INIT(guile-sctp, 1.2.4)
 AC_CONFIG_SRCDIR(guile-sctp.c)
-AM_INIT_AUTOMAKE
+AC_CONFIG_MACRO_DIRS([m4])
 
+AM_INIT_AUTOMAKE
+AC_CONFIG_MACRO_DIRS([m4])
 AM_CONFIG_HEADER(config.h)
 
 dnl Checks for programs.

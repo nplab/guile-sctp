@@ -81,7 +81,7 @@ AC_CHECK_MEMBERS([struct sockaddr_in6.sin6_len],,,
                   #endif])
 
 AC_CHECK_FUNCS(sctp_sendmsg,, [AC_CHECK_LIB(sctp, sctp_sendmsg)])
-AC_CHECK_FUNCS(sctp_recvmsg,, [AC_CHECK_LIB(sctp, sctp_sendmsg)])
+AC_CHECK_FUNCS(sctp_recvmsg,, [AC_CHECK_LIB(sctp, sctp_recvmsg)])
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT

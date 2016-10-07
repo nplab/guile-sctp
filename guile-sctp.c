@@ -123,7 +123,7 @@ scm_fill_sockaddr (int fam, SCM address, SCM *args, int which_arg, const char *p
 			*args = SCM_CDR (*args);
 			soka = (struct sockaddr_in *) scm_malloc (sizeof (struct sockaddr_in));
 
-#if HAVE_STRUCT_SOCKADDR_SIN_LEN
+#if HAVE_STRUCT_SOCKADDR_IN_SIN_LEN
 			soka->sin_len = sizeof (struct sockaddr_in);
 #endif
 			soka->sin_family = AF_INET;

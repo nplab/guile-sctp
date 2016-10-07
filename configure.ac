@@ -16,19 +16,18 @@ GUILE_SITE_DIR
 
 AC_CHECK_HEADERS(sys/types.h sys/socket.h netinet/in.h netinet/sctp.h)
 AC_C_BIGENDIAN
-AC_CHECK_MEMBERS([struct sockaddr.sin_len],,,
-                 [#ifdef HAVE_SYS_TYPES_H
-                  #include <sys/types.h>
-                  #endif
-                  #include <netinet/in.h>])
 
 AC_MSG_CHECKING(for working IPv6 support)
 AC_CACHE_VAL(guile_cv_have_ipv6,
             [AC_TRY_COMPILE([#ifdef HAVE_SYS_TYPES_H
                              #include <sys/types.h>
                              #endif
+                             #ifdef HAVE_NETINET_IN_H
                              #include <netinet/in.h>
-                             #include <sys/socket.h>],
+                             #endif
+                             #ifdef HAVE_SYS_SOCKET_H
+                             #include <sys/socket.h>
+                             #endif],
                             [struct sockaddr_in6 a;
                              a.sin6_family = AF_INET6;],
                             guile_cv_have_ipv6=yes,
@@ -44,7 +43,9 @@ AC_CACHE_VAL(guile_cv_have_sin6_scope_id,
              [AC_TRY_COMPILE([#ifdef HAVE_SYS_TYPES_H
                               #include <sys/types.h>
                               #endif
-                              #include <netinet/in.h>],
+                              #ifdef HAVE_NETINET_IN_H
+                              #include <netinet/in.h>
+                              #endif],
                              [struct sockaddr_in6 sok;
                               sok.sin6_scope_id = 0;],
                              guile_cv_have_sin6_scope_id=yes,
@@ -55,12 +56,29 @@ if test $guile_cv_have_sin6_scope_id = yes; then
     [Define this if your IPv6 has sin6_scope_id in sockaddr_in6 struct.])
 fi
 
-# struct sockaddr_in6 field sin_len is only present on BSD systems
+AC_CHECK_MEMBERS([struct sockaddr.sa_len],,,
+                 [#ifdef HAVE_SYS_TYPES_H
+                  #include <sys/types.h>
+                  #endif
+                  #ifdef HAVE_SYS_SOCKET_H
+                  #include <sys/socket.h>
+                  #endif])
+
+AC_CHECK_MEMBERS([struct sockaddr_in.sin_len],,,
+                 [#ifdef HAVE_SYS_TYPES_H
+                  #include <sys/types.h>
+                  #endif
+                  #ifdef HAVE_NETINET_IN_H
+                  #include <netinet/in.h>
+                  #endif])
+
 AC_CHECK_MEMBERS([struct sockaddr_in6.sin6_len],,,
                  [#ifdef HAVE_SYS_TYPES_H
                   #include <sys/types.h>
                   #endif
-                  #include <netinet/in.h>])
+                  #ifdef HAVE_NETINET_IN_H
+                  #include <netinet/in.h>
+                  #endif])
 
 AC_MSG_CHECKING(for working SCTP support)
 AC_TRY_COMPILE([#ifdef HAVE_SYS_TYPES_H
